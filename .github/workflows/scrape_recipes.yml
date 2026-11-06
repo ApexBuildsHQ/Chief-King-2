@@ -7,11 +7,15 @@ jobs:
   run-scraper:
     runs-on: ubuntu-latest
     
-    # منح صلاحية الكتابة للمستودع لكي يتمكن الـ Token من الرفع المباشر
     permissions:
       contents: write
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: Control  # سحب الملفات من الفرع المخصص
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
